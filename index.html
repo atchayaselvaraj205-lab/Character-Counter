@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Character Counter</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                padding:20px;
+            }
+            textarea{
+                width:400px;
+                height:150px;
+                padding:10px;
+            }
+            #warning{
+                color:red;
+                font-weight:bold;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <h2>Character Counterr</h2>
+        <textarea id ="message" maxlength="200" placeholder="Type here..."></textarea>
+        <p id ="count">0/200 characters</p>
+        <p id ="remaining">Remaining:200</p>
+        <p id ="warning"></p>
+
+        <script>
+            const textarea = document.getElementById("message");
+            const count = document.getElementById("count");
+            const remaining = document.getElementById("remaining");
+            const warning = document.getElementById("warning");
+
+            textarea.addEventListener("input",function(){
+                let length = textarea.value.length;
+                let remain = 200-length;
+                count.innerHTML = length+ "/200 characters";
+                remaining.innerHTML = "Remaining:" + remain;
+
+                if(length === 200){
+                    warning.innerText = "character limit reached!";
+
+                }else{
+                    warning.innerText = "";
+                }
+            });
+        </script>
+    </body>
+</html>
